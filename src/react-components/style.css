@@ -1,0 +1,21 @@
+:root {
+  --color: red;
+}
+.title {
+  color: var(--color);
+
+  @media (--size-s) {
+    font-size: 48px;
+  }
+}
+.button {
+  font-size: var(--font-size);
+  color: var(--color);
+  background-color: var(--color-pink);
+}
+:--heading {
+  color: blue;
+}
+.testcolor {
+  color: var(--mycolor);
+}

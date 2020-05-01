@@ -1,38 +1,45 @@
 // Core
-const webpack = require("webpack");
-const DevServer = require("webpack-dev-server");
-const hot = require("webpack-hot-middleware");
-const chalk = require("chalk");
-
+import webpack from "webpack";
+import DevServer from "webpack-dev-server";
+import hot from "webpack-hot-middleware";
+import chalk from "chalk";
+import { chooesPort } from "../helpers/chooesPort";
 // Config
-const getConfig = require("./webpack.config");
+import getConfigDev from "./config/webpack.dev";
 
 // Constants
-const { HOST, PORT } = require("./constants");
+import { HOST, PORT } from "./constants";
 
-const compiler = webpack(getConfig());
+const compiler = webpack(getConfigDev());
 
-const server = new DevServer(compiler, {
-  host: HOST,
-  port: PORT,
-  historyApiFallback: true,
-  overlay: true,
-  quiet: true,
-  clientLogLevel: "none",
-  noInfo: true,
-  after: (app) => {
-    app.use(
-      hot(compiler, {
-        log: false,
-      })
-    );
-  },
-});
+(async () => {
+  try {
+    const portSelected = await chooesPort(PORT);
 
-server.listen(PORT, HOST, () => {
-  console.log(`
-    ${chalk.greenBright("⚡⚡⚡ Dev Server listening on")} ${chalk.blueBright(
-    `http://${HOST}:${PORT} ⚡⚡⚡`
-  )}
-  `);
-});
+    const server = new DevServer(compiler, {
+      host: HOST,
+      port: portSelected,
+      historyApiFallback: true,
+      overlay: true,
+      quiet: true,
+      clientLogLevel: "none",
+      noInfo: true,
+      liveReload: true,
+    });
+
+    server.listen(portSelected, HOST, () => {
+      console.log(`
+        ${chalk.greenBright(
+          "⚡⚡⚡ Dev Server listening on"
+        )} ${chalk.blueBright(`http://${HOST}:${portSelected} ⚡⚡⚡`)}
+      `);
+    });
+  } catch (err) {
+    console.log(`
+      ${chalk.yellowBright(`
+        ❌❌❌Impossible run the app❌❌❌
+        `)}
+      `);
+    console.log(chalk.redBright(err.message || err));
+  }
+})();
