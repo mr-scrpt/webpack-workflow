@@ -1,7 +1,7 @@
 // Core
 import webpack from "webpack";
 import DevServer from "webpack-dev-server";
-import hot from "webpack-hot-middleware";
+//import hot from "webpack-hot-middleware";
 import chalk from "chalk";
 import { chooesPort } from "../helpers/chooesPort";
 // Config

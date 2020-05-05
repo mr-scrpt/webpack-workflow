@@ -14,5 +14,6 @@ module.exports = class Hendalf {
   }
   sayKind = () => {
     console.log("-> Kind", this.kind, this);
+    throw new Error();
   };
 };

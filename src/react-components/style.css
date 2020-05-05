@@ -1,5 +1,8 @@
+@import "../../static/fonsts/index.css";
+
 :root {
   --color: red;
+  font-family: "Caveat", system-ui;
 }
 .title {
   color: var(--color);

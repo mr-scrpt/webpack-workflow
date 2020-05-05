@@ -21,4 +21,5 @@ console.log("-> a", div);
 import React from "react";
 import ReactDOM from "react-dom";
 import { MyComponent } from "./react-components";
+
 ReactDOM.render(<MyComponent />, document.getElementById("app"));

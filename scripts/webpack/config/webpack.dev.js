@@ -3,10 +3,10 @@ import mearge from "webpack-merge";
 // Common config webpack
 import getCommonConfig from "./webpack.common";
 
-module.exports = () => {
+export default () => {
   return mearge(getCommonConfig(), {
     mode: "none",
-    devtool: false,
+    devtool: "cheap-module-eval-source-map",
     plugins: [],
   });
 };
