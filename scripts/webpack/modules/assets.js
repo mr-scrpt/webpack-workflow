@@ -37,7 +37,7 @@ export const loadSVG = () => ({
           {
             loader: "file-loader",
             options: {
-              name: `image/svg/[name].[ext]`,
+              name: `img/svg/[name].[ext]`,
             },
           },
         ],
@@ -48,11 +48,11 @@ export const loadSVG = () => ({
           test: /\.css$/,
         },
         use: [
-          "@svg/webpack",
+          "@svgr/webpack",
           {
             loader: "file-loader",
             options: {
-              name: `image/svg/[name].[ext]`,
+              name: `img/svg/[name].[ext]`,
             },
           },
         ],

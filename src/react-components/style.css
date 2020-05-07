@@ -15,6 +15,7 @@
   font-size: var(--font-size);
   color: var(--color);
   background-color: var(--color-pink);
+  background-image: url("./churros.svg");
 }
 :--heading {
   color: blue;

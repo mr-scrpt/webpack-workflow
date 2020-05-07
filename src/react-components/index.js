@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import Style from "./style.css";
-import "./style.scss";
-import { ReactComponent as ReactLogoComponent } from "../../static/assets/img/churros.svg";
+import svg from "./churros.svg";
+import jpg from "./drel.jpg";
+import png from "./donut.png";
+import { ReactComponent as ReactLogoComponent } from "./churros.svg";
 
 export const MyComponent = () => {
   const [color, setColor] = useState("pink");
+  console.log("-> ENV", __ENV__);
+  console.log("-> DEV", __DEV__);
+  console.log("-> STAGE", __STAGE__);
+  console.log("-> PROD", __PROD__);
 
   return (
     <div>
       <h1 className={Style.title} style={{ "--mainColor": color }}>
         Title 1
       </h1>
+      <img src={jpg} alt="alt" />
+      <img src={png} alt="alt" />
       <h2>Title 2</h2>
       <h3>Привет!</h3>
       <ReactLogoComponent width={50} height={50} />

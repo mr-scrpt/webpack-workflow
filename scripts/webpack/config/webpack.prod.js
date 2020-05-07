@@ -1,21 +1,20 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 import mearge from "webpack-merge";
-
-// Constants
-//const { BUILD_DIRECTORY } = require("../constants");
-
+import * as modules from "../modules";
 // Common config webpack
 import getCommonConfig from "./webpack.common";
 
-// Clean options
-const cleanOptions = {
-  verbose: true,
-};
-
 export default () => {
-  return mearge(getCommonConfig(), {
-    mode: "none",
-    devtool: false,
-    plugins: [new CleanWebpackPlugin(cleanOptions)],
-  });
+  return mearge(
+    getCommonConfig(),
+    {
+      mode: "none",
+      devtool: false,
+    },
+    modules.cleanDirectories(),
+    modules.connectBuildProgressIndicator(),
+    modules.loadCSSProd(),
+    modules.optimizeIMG(),
+    modules.connectBundleAnalyzer()
+    //modules.loadSASS()
+  );
 };
