@@ -3,6 +3,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node --require @babel/register \"./scripts/webpack/start\"",
     "build": "cross-env NODE_ENV=production node --require @babel/register \"./scripts/webpack/build\"",
+    "analyed": "webpack-bundle-analyzer \"./build/stats.json\"",
     "serve": "serve \"./build/\" -s"
   },
   "dependencies": {
