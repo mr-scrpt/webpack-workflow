@@ -1,6 +1,6 @@
 import ImageminWebpackPlugin from "imagemin-webpack";
 import TerserPlugin from "terser-webpack-plugin";
-
+import { ContextReplacementPlugin } from "webpack";
 export const optimizeBuild = () => ({
   optimization: {
     nodeEnv: "production",
@@ -45,4 +45,7 @@ export const optimizeIMG = () => ({
       },
     }),
   ],
+});
+export const filterMomentLocales = () => ({
+  plugins: [new ContextReplacementPlugin(/moment[/\\]locale$/, /ru|en/)],
 });

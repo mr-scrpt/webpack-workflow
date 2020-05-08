@@ -3,7 +3,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node --require @babel/register \"./scripts/webpack/start\"",
     "build": "cross-env NODE_ENV=production node --require @babel/register \"./scripts/webpack/build\"",
-    "analyed": "webpack-bundle-analyzer \"./build/stats.json\"",
+    "analyzed": "webpack-bundle-analyzer \"./build/stats.json\"",
     "serve": "serve \"./build/\" -s"
   },
   "dependencies": {
@@ -35,6 +35,7 @@
     "imagemin-webpack": "^5.1.1",
     "inquirer": "^7.1.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "moment": "^2.25.3",
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",

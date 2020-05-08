@@ -1,6 +1,9 @@
 //import "./style/style.css";
 import create from "./components/createDiv";
 //const Hendalf = require("./classes/classes");
+import now from "moment";
+
+now();
 (() => {
   const el = create();
   document.body.appendChild(el);

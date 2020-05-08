@@ -16,7 +16,7 @@ export default () => {
     modules.loadCSSProd(),
     modules.optimizeBuild(),
     modules.optimizeIMG(),
-    modules.connectBundleAnalyzer()
-    //modules.loadSASS()
+    modules.connectBundleAnalyzer(),
+    modules.filterMomentLocales() //modules.loadSASS()
   );
 };
