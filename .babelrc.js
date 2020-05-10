@@ -16,6 +16,8 @@ module.exports = (api) => {
           spec: true,
           loose: false,
           modules: "auto", // для старых проектов  false
+          corejs: "2",
+          useBuiltIns: "usage",
         },
       ],
     ],

@@ -5,6 +5,10 @@ import jpg from "./drel.jpg";
 import png from "./donut.png";
 import { ReactComponent as ReactLogoComponent } from "./churros.svg";
 
+import create from "../components/createDiv";
+const el = create();
+document.body.appendChild(el);
+
 export const MyComponent = () => {
   const [color, setColor] = useState("pink");
   console.log("-> ENV", __ENV__);
@@ -14,6 +18,7 @@ export const MyComponent = () => {
 
   return (
     <div>
+      <div className="content"></div>
       <h1 className={Style.title} style={{ "--mainColor": color }}>
         Title 1
       </h1>

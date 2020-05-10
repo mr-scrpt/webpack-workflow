@@ -19,6 +19,29 @@ export const optimizeBuild = () => ({
     moduleIds: false,
     namedChunks: false,
     chunkIds: false,
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: "all", //all, initial, async
+      minSize: 100000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: "~",
+      name: true,
+      cacheGroups: {
+        vendors: {
+          chunks: "initial",
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
 });
 

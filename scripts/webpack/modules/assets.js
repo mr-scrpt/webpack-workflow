@@ -17,7 +17,7 @@ export const loadIMG = () => ({
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
         options: {
-          name: `img/[name].[ext]`,
+          name: `img/[name].[hash:5].[ext]`,
         },
       },
     ],
@@ -37,7 +37,7 @@ export const loadSVG = () => ({
           {
             loader: "file-loader",
             options: {
-              name: `img/svg/[name].[ext]`,
+              name: `img/svg/[name].[hash:5].[ext]`,
             },
           },
         ],
@@ -52,7 +52,7 @@ export const loadSVG = () => ({
           {
             loader: "file-loader",
             options: {
-              name: `img/svg/[name].[ext]`,
+              name: `img/svg/[name].[hash:5].[ext]`,
             },
           },
         ],
@@ -68,7 +68,7 @@ export const loadFONTS = () => ({
         test: /\.(woff(2)?|ttf|eot)$/i,
         loader: "file-loader",
         options: {
-          name: `fonts/[name].[ext]`,
+          name: `fonts/[name].[hash:5].[ext]`,
         },
       },
     ],
